@@ -1,7 +1,5 @@
 package com.generation.blogpessoal.model;
 
-
-
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.UpdateTimestamp;
@@ -63,7 +61,5 @@ public class Postagem {
 
 	public void setData(LocalDateTime data) {
 		this.data = data;
-	}
-	
-	
+	}	
 }

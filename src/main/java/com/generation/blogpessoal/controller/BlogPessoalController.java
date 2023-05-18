@@ -13,10 +13,9 @@ import com.generation.blogpessoal.model.Postagem;
 import com.generation.blogpessoal.repository.PostagemRepository;
 
 @RestController
-@RequestMapping("/postagens")
+@RequestMapping("/postagem")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class PostagemController {
-
+public class BlogPessoalController {
 	@Autowired
 	private PostagemRepository postagemRepository;
 	
