@@ -2,10 +2,12 @@ package com.generation.blogpessoal.model;
 
 import java.time.LocalDateTime;
 import org.hibernate.annotations.UpdateTimestamp;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -24,10 +26,22 @@ public class Postagem {
 	
 	@NotBlank(message = "Este atributo é de preenchimento obrigatório")
 	@Size(min = 10, max = 1000,message = "Este atributo precisa ter no mínimo 10 caracteres e no máximo 1000 caracteres")
-	private String texto;
-	
+	private String texto;	
+
 	@UpdateTimestamp
 	private LocalDateTime data;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Tema tema;
+	
+	public Tema getTema() {
+		return tema;
+	}
+
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
 
 	public Long getId() {
 		return id;
