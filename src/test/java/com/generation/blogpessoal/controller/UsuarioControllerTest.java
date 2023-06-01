@@ -40,7 +40,7 @@ public class UsuarioControllerTest {
     @DisplayName("Cadastrar um usuário")
     public void deveCriarUmUsuario(){
         HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(new Usuario(0L,"Frida","kahlo@frida.com","12345678","-"));
-        ResponseEntity<Usuario> corpoResposta = testRestTemplate.exchange("usuarios/cadastrar",HttpMethod.POST,corpoRequisicao,Usuario.class);
+        ResponseEntity<Usuario> corpoResposta = testRestTemplate.exchange("/usuarios/cadastrar",HttpMethod.POST,corpoRequisicao,Usuario.class);
         assertEquals(HttpStatus.CREATED,corpoResposta.getStatusCode());
     }
 
